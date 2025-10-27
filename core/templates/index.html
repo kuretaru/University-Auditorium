@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choose Locale</title>
+  </head>
+  <body>
+    <h1>Choose your locale</h1>
+    <form method="post" class="lg_change" action="{{ url_for('set_locale') }}">
+      <select name="locale">
+        <option value="en">English</option>
+        <option value="de">Deustch</option>
+        <option value="cn">中文</option>
+        <option value="ru">Русский</option>
+      </select>
+      <input type="submit" value="Save">
+    </form>
+    
+  </body>
+</html>

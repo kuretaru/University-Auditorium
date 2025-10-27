@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Login - University-Auditorium {% endblock %}
+{% block content %}
+  {% if CURRENT_LANGUAGE == 'cn' %}
+    <h1>登录</h1>
+  {% elif CURRENT_LANGUAGE == 'de' %}
+    <h1>Anmelden</h1>
+  {% elif CURRENT_LANGUAGE == 'en' %}
+    <h1>Sign In</h1>
+  {% elif CURRENT_LANGUAGE == 'ru' %}
+    <h1>Войти</h1>
+  {% else %}
+    <h1>Error!</h1>
+  {% endif %}
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.email.label(class="form-label") }}
+      {{ form.email(class="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.password.label(class="form-label") }}
+      {{ form.password(class="form-control") }}
+    </div>
+    <div class="form-check">
+      {{ form.need_to_remember(class="form-check-input") }}
+      {{ form.need_to_remember.label(class="form-check-label") }}
+    </div>
+    {% if message %}
+      <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Sign In</button>
+  </form>
+  <p>New user? <a href="{{ url_for('auth.register') }}">Register here.</a></p>
+{% endblock %}

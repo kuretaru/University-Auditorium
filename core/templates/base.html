@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %} {% endblock %}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+	<header>
+		<div class="container">
+			<nav>
+				<ul>
+					<li><a href="{{ url_for('en_index') }}">Home</a></li>
+					<li><a href="{{ url_for('en_classes') }}">Auditorium</a></li>
+					<li><a href="{{ url_for('en_contact') }}">Contact</a></li>
+          <li class = "language">
+            <a>
+              <span class="material-symbols-outlined">
+                language
+              </span>
+            </a>
+            <form method="post" class="lg-change" action="{{ url_for('set_locale') }}">
+              <select name="locale">
+                <option value="en">English</option>
+                <option value="cn">中文</option>
+                <option value="de">Deustch</option>
+                <option value="ru">Русский</option>
+              </select>
+              <input type="submit" value="Save">
+            </form>
+          </li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+  <main>
+		<div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2023 BSU</p>
+		</div>
+	</footer>
+</body>
+</html>

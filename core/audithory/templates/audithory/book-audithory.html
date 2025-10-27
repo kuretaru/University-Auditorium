@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %} H {% endblock %}
+{% block content %}
+  <section class="audithory-section">
+    <h1>Auditorium Bookings</h1>
+    {% if check %}
+      <div class="alert alert-success">
+        {{ check }}
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Book an Auditorium</h2>
+        <form method="post">
+          {{ form.csrf_token }}
+          <div class="form-group">
+            {{ form.name.label }} {{ form.name }}
+          </div>
+          <div class="form-group">
+            {{ form.email.label }} {{ form.email }}
+          </div>
+          <div class="form-group">
+            {{ form.category.label }} {{ form.category }}
+          </div>
+          <div class="form-group">
+            {{ form.date.label }} {{ form.date }}
+          </div>
+          <div class="form-group">
+            {{ form.start_time.label }} {{ form.start_time }}
+          </div>
+          <div class="form-group">
+            {{ form.end_time.label }} {{ form.end_time }}
+          </div>
+          <div class="form-group">
+            {{ form.description.label }} {{ form.description }}
+          </div>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2>Upcoming Bookings</h2>
+        {% for booking in audithory %}
+          <div class="booking-card">
+            <h3>{{ booking.name }}</h3>
+            <p>{{ booking.category.name }}</p>
+            <p>{{ booking.date }}</p>
+            <p>{{ booking.start_time }} - {{ booking.end_time }}</p>
+            <p>{{ booking.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

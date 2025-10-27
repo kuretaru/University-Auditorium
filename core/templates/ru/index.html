@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная - "Аудитория Университета"</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+	<header>
+		<div class="container">
+			<nav>
+				<ul>
+					<li><a href="{{ url_for('ru_index') }}">Домой</a></li>
+					<li><a href="{{ url_for('ru_classes') }}">Аудитории</a></li>
+					<li><a href="{{ url_for('ru_contact') }}">Связаться с нами</a></li>
+          <li class = "language">
+            <a>
+              <span class="material-symbols-outlined">
+                language
+              </span>
+            </a>
+            <form method="post" class="lg-change" action="{{ url_for('set_locale') }}">
+              <select name="locale">
+                <option value="ru">Русский</option>
+                <option value="cn">中文</option>
+                <option value="de">Deustch</option>
+                <option value="en">English</option>
+              </select>
+              <input type="submit" value="Save">
+            </form>
+          </li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<div class="container">
+			<h1>Добро пожаловать в "Аудиторию класса"</h1>
+			<p>Это оптимальная платформу для онлайн-обучения! Наш сайт предлагает широкий спектр курсов по различным темам, которые преподают высококвалифицированные специалисты с большим опытом работы в отрасли. Если вы хотите развить новые навыки, усовершенствовать свои знания или продвинуться по карьерной лестнице, у нас найдется курс, соответствующий вашим потребностям.
+			<p>Наш удобный интерфейс облегчает вам доступ к курсам и позволяет учиться в своем собственном темпе. Вы можете отслеживать свой прогресс, участвовать в викторинах и дискуссиях со своими сокурсниками. Наша передовая технология обеспечивает бесперебойную передачу высококачественного видео- и аудио-контента, что делает процесс обучения увлекательным и захватывающим.</p>
+			<p>В "Аудитории класса" мы считаем, что обучение должно быть доступным для всех, независимо от их географического положения или происхождения. Именно поэтому наши курсы доступны в режиме онлайн 24 часа в сутки 7 дней в неделю, чтобы вы могли учиться в любое время и в любом месте.</p>
+      <p>Присоединяйтесь к нашему сообществу учащихся сегодня и раскройте свой потенциал! Просмотрите наш каталог курсов, чтобы найти интересующий вас курс, и сделайте первый шаг к достижению своих целей. С "Аудитории класса" небо - это не предел!</p>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2023 BSU</p>
+		</div>
+	</footer>
+</body>
+</html>
